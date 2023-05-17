@@ -1,0 +1,57 @@
+:root {
+    --clr-red: hsl(360, 78%, 53%);
+    --clr-peach: hsl(21, 100%, 94%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-lighter-black: hsl(9, 11%, 12%);
+
+    --ff-primary: "Poppins", sans-serif;
+
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fw-thin: 100;
+    --fw-extra-light: 200;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+}
+
+/* Utility classes */
+
+.text-red {
+    color: var(--clr-red);
+}
+.text-peach {
+    color: var(--clr-peach);
+}
+.text-white {
+    color: var(--clr-white);
+}
+.text-lighter-black {
+    color: var(--clr-lighter-black);
+}
+
+.bg-red {
+    background-color: var(--clr-red);
+}
+.bg-peach {
+    background-color: var(--clr-peach);
+}
+.bg-white {
+    background-color: var(--clr-white);
+}
+.bg-lighter-black {
+    background-color: var(--clr-lighter-black);
+}
+
+.fw-thin { font-weight: var(--fw-thin); }
+.fw-extra-light { font-weight: var(--fw-extra-light); }
+.fw-light { font-weight: var(--fw-light); }
+.fw-regular { font-weight: var(--fw-regular); }
+.fw-medium { font-weight: var(--fw-medium); }
+.fw-semi-bold { font-weight: var(--fw-semi-bold); }
+.fw-bold { font-weight: var(--fw-bold); }
+.fw-extra-bold { font-weight: var(--fw-extra-bold); }
