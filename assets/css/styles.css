@@ -21,12 +21,15 @@
     --fw-bold: 700;
     --fw-extra-bold: 800;
 
+    --fs-300: .875rem;
     --fs-400: 1rem;
+    --fs-500: 1.5rem;
+    --fs-600: 2rem;
+    --fs-700: 2.5rem;
+    --fs-900: 4rem;
 
     --fs-body: var(--fs-400);
 }
-
-
 
 /* Utility classes */
 
@@ -55,6 +58,19 @@
 .bg-lighter-black {
     background-color: var(--clr-lighter-black);
 }
+.bg-accent {
+    background-color: var(--clr-accent);
+}
+
+.clr-red {
+    color: var(--clr-red);
+}
+.clr-main {
+    color: var(--clr-main);
+}
+.clr-accent {
+    color: var(--clr-accent);
+}
 
 .fw-thin { font-weight: var(--fw-thin); }
 .fw-extra-light { font-weight: var(--fw-extra-light); }
@@ -64,6 +80,13 @@
 .fw-semi-bold { font-weight: var(--fw-semi-bold); }
 .fw-bold { font-weight: var(--fw-bold); }
 .fw-extra-bold { font-weight: var(--fw-extra-bold); }
+
+.fs-300 { font-size: var(--fs-300); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-900 {font-size: var(--fs-900); }
 
 .visually-hidden {
   position: absolute;
@@ -93,7 +116,6 @@ body {
     font-size: var(--fs-body);
     font-family: var(--ff-body);
     background-color: var(--clr-peach);
-    padding: 0.5rem;
 }
 
 /* Primary header */
@@ -156,11 +178,49 @@ body {
 
 /* Hero section */
 
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero--main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+}
+
 .hero--main-title h1 {
-    font-size: 2.2rem;
+    font-size: clamp(2.3rem, 0.5rem + 10vw, 5rem);
     text-align: center;
     font-weight: var(--fw-medium);
     line-height: 1.2;
+}
+
+.hero--order-btn {
+    background-color: var(--clr-accent);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    cursor: pointer;
+    transition-duration: .2s;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    width: 250px;
+}
+
+.hero--order-btn:hover {
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
+.hero--order-btn:active {
+    transform: translateY(-2px);
+    transform: translateX(2px);
+    box-shadow: none;
 }
 
 .hero--main-title h1 :nth-child(2){
@@ -229,3 +289,128 @@ body {
         display: block;
     }
 }
+
+/* Menu */
+
+.menu-h1 {
+    text-align: center;
+}
+
+.menu--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-evenly;
+}
+
+.card-menu {
+    background-color: var(--clr-white);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 335px;
+    width: 253px;
+    padding: 1rem;
+}
+
+.card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "card-img card-img"
+    "card-rating card-rating"
+    "card-title card-cart"
+    "card-ingredients card-ingredients"
+    "card-price card-order-btn"
+    ;
+    gap: 0.4rem;
+    height: 100%;
+}
+
+.card-img {
+    grid-area: card-img;
+}
+
+.card-rating {
+    grid-area: card-rating;
+    width: 110px;
+}
+
+.card-title {
+    grid-area: card-title
+}
+
+.card-cart {
+    grid-area: card-cart;
+    width: 30px;
+    justify-self: flex-end;
+}
+
+.card-ingredients {
+    grid-area: card-ingredients;
+}
+
+.card-price {
+    grid-area: card-price;
+    align-self: flex-end;
+}
+
+.card-order-btn {
+    grid-area: card-order-btn;
+    justify-self: flex-end;
+    margin-top: 1rem;
+}
+
+.card-data-small,
+.card-data-medium,
+.card-data-large {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-order-btn {
+    width: 95px;
+    height: 31px;
+    background-color: var(--clr-white);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.card-order-btn:active {
+    box-shadow: none;
+    transform: translateY(-2px);
+    transform: translateX(2px);
+}
+
+.card-order-btn:hover {
+    background-color: whitesmoke;
+}
+
+/* Why us section */
+
+.whyus--wrapper {
+    text-align: center;
+}
+
+.whyus-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.whyus-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+
+
