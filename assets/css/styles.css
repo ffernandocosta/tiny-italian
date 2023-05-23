@@ -108,6 +108,9 @@
     max-width: var(--max-width);
     padding: var(--padding);
     margin-inline: auto;
+    text-align: center;
+    display: grid;
+    gap: 2rem;
 }
 
 /* General styling */
@@ -176,57 +179,6 @@ body {
     width: 25px;
 }
 
-/* Hero section */
-
-.hero-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero--main-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-}
-
-.hero--main-title h1 {
-    font-size: clamp(2.3rem, 0.5rem + 10vw, 5rem);
-    text-align: center;
-    font-weight: var(--fw-medium);
-    line-height: 1.2;
-}
-
-.hero--order-btn {
-    background-color: var(--clr-accent);
-    border: 1px solid black;
-    border-radius: 9px;
-    box-shadow: 2px 2px var(--clr-main);
-    cursor: pointer;
-    transition-duration: .2s;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    width: 250px;
-}
-
-.hero--order-btn:hover {
-    background-color: var(--clr-peach);
-    color: var(--clr-main);
-}
-
-.hero--order-btn:active {
-    transform: translateY(-2px);
-    transform: translateX(2px);
-    box-shadow: none;
-}
-
-.hero--main-title h1 :nth-child(2){
-    color: var(--clr-accent);
-    font-weight: var(--fw-bold);
-}
 
 @media (max-width: 50em) {
     .primary-navigation {
@@ -290,10 +242,72 @@ body {
     }
 }
 
+/* Hero section */
+
+.hero--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero--main-img {
+    max-width: 270px;
+}
+
+.hero--main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero--main-title h1 {
+    font-size: clamp(2.3rem, 0.1rem + 5vw, 4rem);
+    text-align: center;
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+}
+
+.hero--order-btn {
+    background-color: var(--clr-accent);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    cursor: pointer;
+    transition-duration: .2s;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    width: 250px;
+}
+
+.hero--order-btn:hover {
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
+.hero--order-btn:active {
+    transform: translateY(-2px);
+    transform: translateX(2px);
+    box-shadow: none;
+}
+
+@media (min-width: 40em) {
+    .hero--wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero--main-img {
+        max-width: 100%;
+    }
+}
+
 /* Menu */
 
 .menu-h1 {
     text-align: center;
+    font-size: clamp(2rem, 0.1rem + 10vw, 4rem);
 }
 
 .menu--wrapper {
@@ -301,6 +315,7 @@ body {
     flex-wrap: wrap;
     gap: 3rem;
     justify-content: space-evenly;
+    margin-bottom: 2.5rem;
 }
 
 .card-menu {
@@ -325,6 +340,7 @@ body {
     ;
     gap: 0.4rem;
     height: 100%;
+    text-align: justify;
 }
 
 .card-img {
@@ -358,27 +374,20 @@ body {
 .card-order-btn {
     grid-area: card-order-btn;
     justify-self: flex-end;
-    margin-top: 1rem;
-}
-
-.card-data-small,
-.card-data-medium,
-.card-data-large {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 0.2rem;
 }
 
 .card-order-btn {
     width: 95px;
     height: 31px;
-    background-color: var(--clr-white);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
-    border: none;
+    background-color: var(--clr-accent);
+    border: 1px solid black;
     border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
     cursor: pointer;
     transition-duration: .2s;
+    padding: 0.2rem;
+    font-size: 0.8rem;
 }
 
 .card-order-btn:active {
@@ -388,16 +397,21 @@ body {
 }
 
 .card-order-btn:hover {
-    background-color: whitesmoke;
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
 }
 
 /* Why us section */
 
-.whyus--wrapper {
+.whyus-h1 {
+    font-size: clamp(2rem, 0.1rem + 10vw, 4rem);
+}
+
+.whyus-h2 {
     text-align: center;
 }
 
-.whyus-content {
+.whyus--wrapper {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -410,6 +424,19 @@ body {
     max-width: 500px;
     text-align: justify;
     margin: 0 auto;
+    padding: 1rem;
+}
+
+.whyus-content img {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 70em) {
+    .whyus-content {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 
