@@ -439,5 +439,71 @@ body {
     }
 }
 
+/* Our locations */
+
+.locations-h1 {
+    text-align: center;
+    font-size: clamp(2rem, 0.1rem + 10vw, 4rem);
+}
+
+.locations-hero {
+  max-width: 650px;
+}
+
+.locations--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 70em) {
+    .locations--wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.footer-locations {
+    display: grid;
+    gap: 1rem;
+}
+
+.locations {
+    display: grid;
+    gap: 0.5rem;
+    border-bottom: .5px solid var(--clr-main);
+    padding-bottom: 1rem;
+}
+
+@media (min-width: 70em) {
+    .locations {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "locations-address locations-img"
+        ;
+    }
+
+    .locations-address {
+        grid-area: locations-address;
+        text-align: left;
+    }
+
+    .locations-img {
+        grid-area: locations-img;
+    }
+}
+
+.locations-img {
+    width: 250px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+
+
 
 
