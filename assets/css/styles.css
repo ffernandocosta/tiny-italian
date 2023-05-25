@@ -71,6 +71,13 @@
 .clr-accent {
     color: var(--clr-accent);
 }
+.clr-secondary-accent {
+    color: var(--clr-secondary-accent);
+}
+
+.clr-lighter-black {
+    color: var(--clr-lighter-black);
+}
 
 .fw-thin { font-weight: var(--fw-thin); }
 .fw-extra-light { font-weight: var(--fw-extra-light); }
@@ -503,7 +510,40 @@ body {
     margin: 0 auto;
 }
 
+/* Footer */
 
+.footer-content {
+    display: grid;
+    gap: 0.9rem;
+}
 
+.footer-logo {
+    display: grid;
+    line-height: 1;
+}
 
+.footer-slogan {
+    font-style: italic;
+}
+
+.footer-description {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.footer-email {
+    text-transform: uppercase;
+}
+
+.footer-author {
+    text-decoration: none;
+    color: b;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 
