@@ -376,6 +376,16 @@ body {
 .card-price {
     grid-area: card-price;
     align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+
+.price-discount {
+    text-decoration: line-through;
+    justify-self: flex-start;
+    margin-top: 0.3rem;
+
 }
 
 .card-order-btn {
