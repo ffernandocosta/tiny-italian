@@ -16,6 +16,33 @@ navToggleEl.addEventListener('click', () => {
     primaryNavEL.toggleAttribute("data-visible");
 });
 
+document.getElementById('menu-items').addEventListener('click', (e) => {
+    if(e.target.dataset.orderButton){
+        handleOrderBtnClick(e.target.dataset.orderButton);
+    }
+});
+
+function handleOrderBtnClick(id){
+    const targetItemObj = menuArray.filter( (item) => {
+        return item.uuid === id
+    })[0]
+
+    targetItemObj.itemCount++
+    
+    if(targetItemObj.itemCount > 0){
+        document.querySelector(`[data-order-button-div="${id}"]`).innerHTML = 
+        `
+            <button class="card-order-item-btn fs-300 fw-semi-bold" data-order-item-button="${id}">
+                <span class="decrement-btn" data-decrement-btn="${id}">-</span>
+                <span class="item-count" data-item-count="${id}">${targetItemObj.itemCount}</span>
+                <span class="increment-btn" data-increment-btn="${id}">+</span>
+            </button>
+        `
+    }
+
+    basketItemsArray.unshift(targetItemObj);
+}
+
 function getMenuHtml(){
     let htmlMenu = ``
 
