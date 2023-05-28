@@ -20,6 +20,12 @@ document.getElementById('menu-items').addEventListener('click', (e) => {
     if(e.target.dataset.orderButton){
         handleOrderBtnClick(e.target.dataset.orderButton);
     }
+    else if(e.target.dataset.decrementBtn){
+        handleDecrementOrderBtnClick(e.target.dataset.decrementBtn);
+    }
+    else if(e.target.dataset.incrementBtn){
+        handleIncrementOrderBtnClick(e.target.dataset.incrementBtn);
+    }
 });
 
 function handleOrderBtnClick(id){
@@ -41,6 +47,35 @@ function handleOrderBtnClick(id){
     }
 
     basketItemsArray.unshift(targetItemObj);
+}
+
+function handleDecrementOrderBtnClick(id){
+    const targetItemObj = menuArray.filter( (item) => {
+        return item.uuid === id
+    })[0]
+
+    targetItemObj.itemCount--
+
+    document.querySelector(`[data-item-count="${id}"]`).textContent = targetItemObj.itemCount
+    
+    if(targetItemObj.itemCount < 1){
+        document.querySelector(`[data-order-button-div="${id}"]`).innerHTML = 
+    `
+        <button class="card-order-btn fs-300 fw-semi-bold" data-order-button="${id}">
+            Order
+        </button>
+    `
+    }
+}
+
+function handleIncrementOrderBtnClick(id){
+    const targetItemObj = menuArray.filter( (item) => {
+        return item.uuid === id
+    })[0]
+
+    targetItemObj.itemCount++
+
+    document.querySelector(`[data-item-count="${id}"]`).textContent = targetItemObj.itemCount
 }
 
 function getMenuHtml(){
