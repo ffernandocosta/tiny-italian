@@ -343,7 +343,7 @@ body {
     "card-rating card-rating"
     "card-title card-cart"
     "card-ingredients card-ingredients"
-    "card-price card-order-btn"
+    "card-price order-button-div"
     ;
     gap: 0.4rem;
     height: 100%;
@@ -388,8 +388,8 @@ body {
 
 }
 
-.card-order-btn {
-    grid-area: card-order-btn;
+.order-button-div {
+    grid-area: order-button-div;
     justify-self: flex-end;
     margin-top: 0.2rem;
 }
@@ -404,7 +404,7 @@ body {
     cursor: pointer;
     transition-duration: .2s;
     padding: 0.2rem;
-    font-size: 0.8rem;
+    margin-top: 0.2rem;
 }
 
 .card-order-btn:active {
@@ -415,6 +415,42 @@ body {
 
 .card-order-btn:hover {
     background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
+.card-order-item-btn {
+    grid-area: card-order-btn;
+    justify-self: flex-end;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-order-item-btn {
+    width: 95px;
+    height: 31px;
+    background-color: var(--clr-peach);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    transition-duration: .2s;
+    padding: 0.2rem;
+}
+
+.decrement-btn:hover {
+    color: var(--clr-main);
+}
+
+.decrement-btn {
+    padding: 0.3rem;
+}
+
+.increment-btn {
+    padding: 0.3rem;
+}
+
+.increment-btn:hover {
     color: var(--clr-main);
 }
 
