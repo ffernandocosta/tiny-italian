@@ -46,7 +46,7 @@ function handleOrderBtnClick(id){
         `
     }
 
-    basketItemsArray.unshift(targetItemObj);
+    basketItemsArray.push(targetItemObj);
 }
 
 function handleDecrementOrderBtnClick(id){
