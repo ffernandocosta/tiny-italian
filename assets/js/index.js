@@ -60,11 +60,18 @@ function handleDecrementOrderBtnClick(id){
     
     if(targetItemObj.itemCount < 1){
         document.querySelector(`[data-order-button-div="${id}"]`).innerHTML = 
-    `
+        `
         <button class="card-order-btn fs-300 fw-semi-bold" data-order-button="${id}">
             Order
         </button>
-    `
+        `
+
+        basketItemsArray.forEach( (item, index) => {
+            if(targetItemObj === item){
+                basketItemsArray.splice(index, 1)
+            }
+        })
+
     }
 }
 
