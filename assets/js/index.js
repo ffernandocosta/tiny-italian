@@ -19,12 +19,15 @@ navToggleEl.addEventListener('click', () => {
 document.getElementById('menu-items').addEventListener('click', (e) => {
     if(e.target.dataset.orderButton){
         handleOrderBtnClick(e.target.dataset.orderButton);
+        handleShoppingCartUiUpdate();
     }
     else if(e.target.dataset.decrementBtn){
         handleDecrementOrderBtnClick(e.target.dataset.decrementBtn);
+        handleShoppingCartUiUpdate();
     }
     else if(e.target.dataset.incrementBtn){
         handleIncrementOrderBtnClick(e.target.dataset.incrementBtn);
+        handleShoppingCartUiUpdate();
     }
 });
 
@@ -85,6 +88,38 @@ function handleIncrementOrderBtnClick(id){
     document.querySelector(`[data-item-count="${id}"]`).textContent = targetItemObj.itemCount
 }
 
+function handleShoppingCartUiUpdate(){
+    const itemCountDivEl = document.querySelectorAll('.card--item-count');
+
+    function getBasketItemCountTotal(){
+        let basketItemCountTotal = 0;
+        basketItemsArray.forEach( (item) => {
+            basketItemCountTotal += item.itemCount
+        })
+        
+        return basketItemCountTotal;
+    }
+
+    itemCountDivEl.forEach( (div) => {
+        div.innerHTML = 
+        `
+        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart">
+        <span class="card--how-many-items fs-200 fw-medium clr-white show">
+            ${getBasketItemCountTotal()}
+        </span>
+        `
+    })
+
+    if(getBasketItemCountTotal() === 0){
+        const itemCountSpanEl = document.querySelectorAll('.card--how-many-items');
+
+        itemCountSpanEl.forEach( (span) => {
+            span.classList.remove('show');
+            span.classList.add('hidden');
+        })
+    }
+}
+
 function getMenuHtml(){
     let htmlMenu = ``
 
@@ -94,7 +129,11 @@ function getMenuHtml(){
             <div class="card-inner">
                 <img src="${item.itemImage}" alt="${item.alt}" class="card-img">
                 <img src="/assets/img/stars-rating.svg" alt="Five yellow starts rating" class="card-rating">
-                <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart">
+                <div class="card--item-count">
+                    <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart">
+                    <span class="card--how-many-items fs-200 fw-medium clr-white hidden">
+                    </span>
+                </div>
                 <p class="fs-400 fw-extra-bold card-title">${item.name}</p>
                 <p class="fs-300 card-ingredients">${item.ingredients}</p>
                 <div class="card-price">
