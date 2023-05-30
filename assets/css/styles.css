@@ -46,6 +46,9 @@
 .text-lighter-black {
     color: var(--clr-lighter-black);
 }
+.text-main {
+    color: var(--clr-main);
+}
 
 .bg-red {
     background-color: var(--clr-red);
@@ -489,6 +492,147 @@ body {
 .increment-btn:hover {
     color: var(--clr-main);
 }
+
+.menu--cart-btn {
+    width: 170px;
+    height: 50px;
+    background-color: var(--clr-peach);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    cursor: pointer;
+    transition-duration: .2s;
+    padding: 0.2rem;
+    margin: 0 auto 2rem auto;
+}
+
+.menu--cart-btn:hover {
+    background-color: hsl(21, 100%, 96%);
+}
+
+/* Basket Content */
+
+.basket--content {
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: auto;
+    padding: 2.5rem 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-height: 550px;
+    max-width: 450px;
+    min-width: 260px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition-duration: .2s;
+}
+
+.basket--inner-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.basket--h1 {
+    text-align: center;
+}
+
+.basket--grid-container {
+    display: grid;
+    row-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "basket--grid-item basket--grid-item-details"
+}
+
+.basket--grid-item {
+    display: flex;
+    align-items: center;
+}
+
+.basket--grid-item-details {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.basket--total-price {
+    text-align: end;
+}
+
+.basket--qty-btn {
+    grid-area: card-order-btn;
+    justify-self: flex-end;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.basket--qty-btn {
+    width: 95px;
+    height: 31px;
+    background-color: var(--clr-peach);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    transition-duration: .2s;
+    padding: 0.2rem;
+}
+
+.qty-btn-decrement:hover {
+    color: var(--clr-main);
+}
+
+.qty-btn-decrement {
+    padding: 0.3rem;
+}
+
+.qty-increment-btn {
+    padding: 0.3rem;
+}
+
+.qty-increment-btn {
+    color: var(--clr-main);
+}
+
+.basket--place-order-btn {
+    width: 170px;
+    height: 50px;
+    background-color: var(--clr-peach);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    transition-duration: .2s;
+    padding: 0.2rem;
+    justify-self: center;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.basket--place-order-btn:hover {
+    background-color: hsl(21, 100%, 96%);
+}
+
+.basket--place-order-btn:active {
+    box-shadow: none;
+    transform: translateY(-2px);
+    transform: translateX(2px);
+}
+
+.basket--continue-shopping {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.basket--continue-shopping:hover {
+    color: var(--clr-lighter-black);
+}
+
+
 
 /* Why us section */
 
