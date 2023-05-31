@@ -632,6 +632,35 @@ body {
     color: var(--clr-lighter-black);
 }
 
+/* Basket empty content */
+
+.basket--empty {
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: auto;
+    padding: 2.5rem 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-height: 550px;
+    max-width: 450px;
+    min-width: 260px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition-duration: .2s;
+}
+
+.basket--empty-grid-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.basket-empty-h3 {
+    text-align: center;
+}
+
 
 
 /* Why us section */
