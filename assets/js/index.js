@@ -120,6 +120,61 @@ function handleShoppingCartUiUpdate(){
     }
 }
 
+function getBasketHtml(){
+    let basketHtml = ``
+
+    function getBasketItemsHtml(){
+        let basketItemsHtml = ``
+
+        basketItemsArray.forEach( (item) => {
+            basketItemsHtml +=`
+            <div class="basket--grid-item">
+                <img src="${item.itemImage}" alt="${item.alt}" class="basket--img">
+            </div>
+            <div class="basket--grid-item-details">
+                <h3 class="fs-400 fw-semi-bold">${item.name}</h3>
+                <p class="fs-500 fw-semi-bold">$${(item.price * item.itemCount).toFixed(2)}</p>
+                <button class="basket--qty-btn">
+                    <span class="qty-btn-decrement" data-qty-btn-decrement="${item.uuid}">-</span>
+                    <span class="qty-item-count">${item.itemCount}</span>
+                    <span class="qty-increment-btn" data-qty-btn-increment="${item.uuid}">+</span>
+                </button>
+            </div>
+            `
+        })
+    
+        return basketItemsHtml
+    }
+
+    function getBasketItemsTotalPrice(){
+        let basketItemsTotalPrice = 0;
+        basketItemsArray.forEach( (item) => {
+            basketItemsTotalPrice += item.price * item.itemCount
+        })
+        
+        return basketItemsTotalPrice;
+    }
+
+    basketHtml = `
+    <div class="basket--inner-content">
+        <p class="basket--continue-shopping fs-300 fw-medium text-main">← Continue Shopping</p>
+        <h1 class="basket--h1 fs-600 fw-bold">Basket Items</h1>
+        <div class="basket--full-basket">
+            <div class="basket--grid-container">
+                ${getBasketItemsHtml()}
+            </div>
+        </div>
+        <hr>
+        <p class="fs-500 fw-semi-bold basket--total-price">Total: $${getBasketItemsTotalPrice()}</p>
+        <button class="basket--place-order-btn fs-400 fw-semi-bold" id="basket--place-order-btn">Place Order</button>
+        <p class="basket--continue-shopping fs-300 fw-medium text-main">← Continue Shopping</p>
+    </div>
+    `
+
+    return basketHtml
+    
+}
+
 function getMenuHtml(){
     let htmlMenu = ``
 
