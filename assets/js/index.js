@@ -138,7 +138,7 @@ function getMenuHtml(){
                 <p class="fs-300 card-ingredients">${item.ingredients}</p>
                 <div class="card-price">
                     <p class="price-discount fs-300">${item.discount}</p>
-                    <p class="fs-500 fw-semi-bold">${item.price}</p>
+                    <p class="fs-500 fw-semi-bold">${item.priceText}</p>
                 </div>
                 <div class="order-button-div" data-order-button-div="${item.uuid}">
                     <button class="card-order-btn fs-300 fw-semi-bold" data-order-button="${item.uuid}">
