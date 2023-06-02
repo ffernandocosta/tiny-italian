@@ -16,7 +16,7 @@ navToggleEl.addEventListener('click', () => {
     primaryNavEL.toggleAttribute("data-visible");
 });
 
-document.getElementById('menu-items').addEventListener('click', (e) => {
+document.getElementById('menu-section').addEventListener('click', (e) => {
     if(e.target.dataset.orderButton){
         handleOrderBtnClick(e.target.dataset.orderButton);
         handleShoppingCartUiUpdate();
