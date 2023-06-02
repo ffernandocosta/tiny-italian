@@ -29,6 +29,9 @@ document.getElementById('menu-section').addEventListener('click', (e) => {
         handleIncrementOrderBtnClick(e.target.dataset.incrementBtn);
         handleShoppingCartUiUpdate();
     }
+    else if(e.target.id === "menu--go-to-cart"){
+        renderBasket();
+    }
 });
 
 function handleOrderBtnClick(id){
@@ -207,6 +210,10 @@ function getMenuHtml(){
 
     return htmlMenu
 
+}
+
+function renderBasket(){
+    document.getElementById('basket--content').innerHTML = getBasketHtml();
 }
 
 function renderMenu(){
