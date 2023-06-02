@@ -31,6 +31,7 @@ document.getElementById('menu-section').addEventListener('click', (e) => {
     }
     else if(e.target.id === "menu--go-to-cart"){
         renderBasket();
+        handleGoToCartBtnClick();
     }
 });
 
@@ -120,6 +121,17 @@ function handleShoppingCartUiUpdate(){
             span.classList.remove('show');
             span.classList.add('hidden');
         })
+    }
+}
+
+function handleGoToCartBtnClick(){
+    if(!basketItemsArray.length){
+        document.getElementById('basket--empty').classList.remove('hidden');
+        document.getElementById('basket--empty').classList.add('show');
+    }
+    else {
+        document.getElementById('basket--content').classList.remove('hidden');
+        document.getElementById('basket--content').classList.add('show');
     }
 }
 
