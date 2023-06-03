@@ -106,6 +106,7 @@ function handleIncrementOrderBtnClick(id){
 
 function handleShoppingCartUiUpdate(){
     const itemCountDivEl = document.querySelectorAll('.card--item-count');
+    const navShoppingCartEl = document.getElementById('nav-shopping-cart');
 
     function getBasketItemCountTotal(){
         let basketItemCountTotal = 0;
@@ -124,15 +125,26 @@ function handleShoppingCartUiUpdate(){
             ${getBasketItemCountTotal()}
         </span>
         `
-    })
+    });
+
+    navShoppingCartEl.innerHTML = `
+        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon">
+        <span class="nav--how-many-items fs-200 fw-medium clr-white show">
+            ${getBasketItemCountTotal()}
+        </span>
+    `
 
     if(getBasketItemCountTotal() === 0){
         const itemCountSpanEl = document.querySelectorAll('.card--how-many-items');
+        const navItemCountSpanEl = document.querySelector('.nav--how-many-items');
 
         itemCountSpanEl.forEach( (span) => {
             span.classList.remove('show');
             span.classList.add('hidden');
-        })
+        });
+
+        navItemCountSpanEl.classList.remove('show');
+        navItemCountSpanEl.classList.add('hidden');
     }
 }
 
