@@ -149,13 +149,14 @@ function handleShoppingCartUiUpdate(){
 }
 
 function handleGoToCartBtnClick(){
+    const basketContentEl = document.getElementById('basket--content');
+    const basketEmptyEl = document.getElementById('basket--empty');
+
     if(!basketItemsArray.length){
-        document.getElementById('basket--empty').classList.remove('hidden');
-        document.getElementById('basket--empty').classList.add('show');
+        basketEmptyEl.toggleAttribute('data-visible');
     }
     else {
-        document.getElementById('basket--content').classList.remove('hidden');
-        document.getElementById('basket--content').classList.add('show');
+        basketContentEl.toggleAttribute('data-visible');
     }
 }
 
