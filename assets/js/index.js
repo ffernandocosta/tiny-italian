@@ -39,6 +39,22 @@ document.getElementById('basket--content').addEventListener('click', (e) => {
     if(e.target.classList.contains('basket--continue-shopping')){
         handleContinueShoppingBtnClick();
     }
+    else if(e.target.dataset.qtyBtnDecrement){
+        handleDecrementOrderBtnClick(e.target.dataset.qtyBtnDecrement);
+        renderBasket();
+        handleShoppingCartUiUpdate();
+        
+        // checks to see if the basket is empty and renders empty basket section
+        if(!basketItemsArray.length){
+            document.getElementById('basket--empty').toggleAttribute('data-visible');
+            document.getElementById('basket--content').toggleAttribute('data-visible');
+        }
+    }
+    else if(e.target.dataset.qtyBtnIncrement){
+        handleIncrementOrderBtnClick(e.target.dataset.qtyBtnIncrement);
+        renderBasket();
+        handleShoppingCartUiUpdate();
+    }
 });
 
 document.getElementById('basket--empty').addEventListener('click', (e) => {
