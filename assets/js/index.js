@@ -3,8 +3,12 @@ import { menuArray } from './data.js';
 
 let basketItemsArray = [];
 
-const navToggleEl = document.querySelector(".mobile-nav-toggle");
-const primaryNavEL = document.querySelector(".primary-navigation");
+const navToggleEl = document.getElementById('mobile-nav-toggle');
+const primaryNavEL = document.getElementById('primary-navigation');
+const menuSectionEl = document.getElementById('menu-section');
+const basketContentEl = document.getElementById('basket--content');
+const basketEmptyEl = document.getElementById('basket--empty');
+const menuItemsEl = document.getElementById('menu-items');
 
 navToggleEl.addEventListener('click', () => {
     if (primaryNavEL.hasAttribute("data-visible")){
@@ -16,7 +20,7 @@ navToggleEl.addEventListener('click', () => {
     primaryNavEL.toggleAttribute("data-visible");
 });
 
-document.getElementById('menu-section').addEventListener('click', (e) => {
+menuSectionEl.addEventListener('click', (e) => {
     if(e.target.dataset.orderButton){
         handleOrderBtnClick(e.target.dataset.orderButton);
         handleShoppingCartUiUpdate();
@@ -35,7 +39,7 @@ document.getElementById('menu-section').addEventListener('click', (e) => {
     }
 });
 
-document.getElementById('basket--content').addEventListener('click', (e) => {
+basketContentEl.addEventListener('click', (e) => {
     if(e.target.classList.contains('basket--continue-shopping')){
         handleContinueShoppingBtnClick();
     }
@@ -46,8 +50,8 @@ document.getElementById('basket--content').addEventListener('click', (e) => {
         
         // checks to see if the basket is empty and renders empty basket section
         if(!basketItemsArray.length){
-            document.getElementById('basket--empty').toggleAttribute('data-visible');
-            document.getElementById('basket--content').toggleAttribute('data-visible');
+            basketEmptyEl.toggleAttribute('data-visible');
+            basketContentEl.toggleAttribute('data-visible');
         }
     }
     else if(e.target.dataset.qtyBtnIncrement){
@@ -57,7 +61,7 @@ document.getElementById('basket--content').addEventListener('click', (e) => {
     }
 });
 
-document.getElementById('basket--empty').addEventListener('click', (e) => {
+basketEmptyEl.addEventListener('click', (e) => {
     if(e.target.classList.contains('basket--continue-shopping')){
         handleContinueShoppingBtnClick();
     }
@@ -165,9 +169,6 @@ function handleShoppingCartUiUpdate(){
 }
 
 function handleGoToCartBtnClick(){
-        const basketContentEl = document.getElementById('basket--content');
-    const basketEmptyEl = document.getElementById('basket--empty');
-
     if(!basketItemsArray.length){
         basketEmptyEl.toggleAttribute('data-visible');
     }
@@ -177,11 +178,8 @@ function handleGoToCartBtnClick(){
 }
 
 function handleContinueShoppingBtnClick(){
-    const basketContent = document.getElementById('basket--content');
-    const basketEmptyEl = document.getElementById('basket--empty');
-
-    if(basketContent.hasAttribute('data-visible')){
-        basketContent.toggleAttribute('data-visible');
+    if(basketContentEl.hasAttribute('data-visible')){
+        basketContentEl.toggleAttribute('data-visible');
     }
     else if(basketEmptyEl.hasAttribute('data-visible')){
         basketEmptyEl.toggleAttribute('data-visible');
@@ -278,11 +276,11 @@ function getMenuHtml(){
 }
 
 function renderBasket(){
-    document.getElementById('basket--content').innerHTML = getBasketHtml();
+    basketContentEl = getBasketHtml();
 }
 
 function renderMenu(){
-    document.getElementById('menu-items').innerHTML = getMenuHtml();
+    menuItemsEl = getMenuHtml();
 }
 
 renderMenu();
