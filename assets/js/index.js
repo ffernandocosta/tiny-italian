@@ -276,11 +276,11 @@ function getMenuHtml(){
 }
 
 function renderBasket(){
-    basketContentEl = getBasketHtml();
+    basketContentEl.innerHTML = getBasketHtml();
 }
 
 function renderMenu(){
-    menuItemsEl = getMenuHtml();
+    menuItemsEl.innerHTML = getMenuHtml();
 }
 
 renderMenu();
