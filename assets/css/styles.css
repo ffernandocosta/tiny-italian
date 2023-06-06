@@ -431,6 +431,10 @@ body {
     width: 30px;
 }
 
+.cart-click {
+    cursor: pointer;
+}
+
 .card-ingredients {
     grid-area: card-ingredients;
 }

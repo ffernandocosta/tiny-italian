@@ -67,6 +67,13 @@ basketEmptyEl.addEventListener('click', (e) => {
     }
 });
 
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('cart-click')){
+        handleGoToCartBtnClick();
+        renderBasket();
+    }
+});
+
 function handleOrderBtnClick(id){
     const targetItemObj = menuArray.filter( (item) => {
         return item.uuid === id
@@ -140,16 +147,16 @@ function handleShoppingCartUiUpdate(){
     itemCountDivEl.forEach( (div) => {
         div.innerHTML = 
         `
-        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart">
-        <span class="card--how-many-items fs-200 fw-medium clr-white show">
+        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart cart-click">
+        <span class="card--how-many-items cart-click fs-200 fw-medium clr-white show">
             ${getBasketItemCountTotal()}
         </span>
         `
     });
 
     navShoppingCartEl.innerHTML = `
-        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon">
-        <span class="nav--how-many-items fs-200 fw-medium clr-white show">
+        <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon cart-click">
+        <span class="nav--how-many-items cart-click fs-200 fw-medium clr-white show">
             ${getBasketItemCountTotal()}
         </span>
     `
@@ -251,8 +258,8 @@ function getMenuHtml(){
                 <img src="${item.itemImage}" alt="${item.alt}" class="card-img">
                 <img src="/assets/img/stars-rating.svg" alt="Five yellow starts rating" class="card-rating">
                 <div class="card--item-count">
-                    <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart">
-                    <span class="card--how-many-items fs-200 fw-medium clr-white hidden">
+                    <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart cart-click">
+                    <span class="card--how-many-items cart-click fs-200 fw-medium clr-white hidden">
                     </span>
                 </div>
                 <p class="fs-400 fw-extra-bold card-title">${item.name}</p>
@@ -284,3 +291,5 @@ function renderMenu(){
 }
 
 renderMenu();
+
+
