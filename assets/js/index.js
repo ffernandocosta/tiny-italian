@@ -64,11 +64,29 @@ document.addEventListener('click', (e) => {
     if(e.target.classList.contains('cart-click')){
         handleGoToCartBtnClick();
         renderBasket();
+        if(e.target.classList.contains('shopping-cart-icon')){
+            handleMobileNavToggleClick();
+        }
     }
-    else if(e.target.id === 'hero--order-now-btn' || e.target.id === 'nav-menu' ){
+    else if(e.target.id === 'nav-menu'){
+        e.preventDefault();
+        menuSectionEl.scrollIntoView({ behavior: 'smooth' });
+        handleMobileNavToggleClick();
+    }
+    else if(e.target.id === 'hero--order-now-btn'){
         e.preventDefault();
         menuSectionEl.scrollIntoView({ behavior: 'smooth' });
     }
+    else if(e.target.id === 'nav-whyus'){
+        e.preventDefault();
+        document.getElementById('whyus-section').scrollIntoView({ behavior: 'smooth' });
+        handleMobileNavToggleClick();
+    }
+    else if(e.target.id === 'nav-locations'){
+        e.preventDefault();
+        document.getElementById('locations-section').scrollIntoView({ behavior: 'smooth' });
+        handleMobileNavToggleClick();
+    }   
 });
 
 function handleMobileNavToggleClick(){

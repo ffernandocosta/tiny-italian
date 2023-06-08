@@ -15,6 +15,7 @@
 </head>
 <body>
         <header class="container">
+            <!--Primary Navigation-->
             <div class="nav-wrapper">
                 <a href="#" class="logo-link">
                     <span class="logo fw-semi-bold">TinyItalian</span>
@@ -27,16 +28,16 @@
                 <nav class="primary-navigation" id="primary-navigation">
                     <ul role="list" aria-label="Primary" class="nav-list">
                         <li>
-                            <a href="#">Menu</a>
+                            <a href="#" id="nav-menu">Menu</a>
                         </li>
                         <li>
-                            <a href="#">Why us?</a>
+                            <a href="#" id="nav-whyus">Why us?</a>
                         </li>
                         <li>
-                            <a href="#">Locations</a>
+                            <a href="#" id="nav-locations">Locations</a>
                         </li>
                         <li id="nav-shopping-cart" class="nav-shopping-cart">
-                            <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon cart-click">
+                            <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon cart-click" id="nav-cart-icon">
                         </li>
                     </ul>
                 </nav>
@@ -44,6 +45,7 @@
         </header>
 
         <main>
+            <!--Hero section-->
             <section class="container">
                 <div class="hero--wrapper">
                     <div class="hero--main-title">
@@ -52,7 +54,7 @@
                             <span class="clr-accent fw-bold">streets of Italy,</span>
                             <span>one slice at a time</span>
                         </h1>
-                        <button class="hero--order-btn fw-semi-bold">Order now!</button>
+                        <button class="hero--order-btn fw-semi-bold" id="hero--order-now-btn">Order now!</button>
                     </div>
                     <div>
                         <img src="/assets/img/pizza-floating.png" alt="A slice of pizza illustration floating" class="hero--main-img">
@@ -60,6 +62,7 @@
                 </div>
             </section>
 
+            <!--Empty Basket-->
             <section class="basket--empty bg-white" id="basket--empty">
                 <div class="basket--empty-grid-container">
                     <h3 class="basket-empty-h3 fs-600 fw-bold clr-lighter-black">Basket is empty</h3>
@@ -72,6 +75,7 @@
                 <!--BASKET CONTENT HERE-->
             </section>
 
+            <!--Menu-->
             <section class="bg-white" id="menu-section">
                 <div class="container">
                     <h1 class="fs-900 fw-extra-bold menu-h1">Menu</h1>
@@ -82,7 +86,8 @@
                 </div>
             </section>
 
-            <section class="container">
+            <!--Why us-->
+            <section class="container" id="whyus-section">
                 <h1 class="fs-900 whyus-h1">
                     <span>Why</span>
                     <span class="fw-extra-bold">Us</span>
@@ -98,7 +103,8 @@
                 </div>
             </section>
 
-            <section class="container">
+            <!--Locations-->
+            <section class="container" id="locations-section">
                 <h1 class="locations-h1">
                     <span>Our</span>
                     <span class="fw-extra-bold">Locations</span>
