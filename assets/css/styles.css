@@ -176,6 +176,7 @@ body {
 .nav-list {
     display: flex;
     justify-content: space-between;
+    transition: 0.5s ease;
 }
 
 .nav-list li {
@@ -186,7 +187,26 @@ body {
     text-decoration: none;
     color: var(--clr-main);
     font-weight: var(--fw-bold);
+    transition: 0.5s ease;
 }
+
+.nav-list li a:hover {
+    color: var(--clr-lighter-black);
+}
+
+.nav-list li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.nav-list li a:hover::after {
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-main);
+  }
 
 .nav-wrapper {
     display: flex;
@@ -201,6 +221,11 @@ body {
 
 .shopping-cart-icon {
     width: 25px;
+    transition: 0.5s;
+}
+
+.shopping-cart-icon:hover {
+    transform: rotate(-0.02turn);
 }
 
 .nav--how-many-items {
@@ -429,6 +454,11 @@ body {
 
 .card-cart {
     width: 30px;
+    transition: 0.5s;
+}
+
+.card-cart:hover {
+    transform: rotate(-0.02turn);
 }
 
 .cart-click {
