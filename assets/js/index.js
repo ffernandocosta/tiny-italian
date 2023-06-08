@@ -4,20 +4,13 @@ import { menuArray } from './data.js';
 let basketItemsArray = [];
 
 const navToggleEl = document.getElementById('mobile-nav-toggle');
-const primaryNavEL = document.getElementById('primary-navigation');
 const menuSectionEl = document.getElementById('menu-section');
 const basketContentEl = document.getElementById('basket--content');
 const basketEmptyEl = document.getElementById('basket--empty');
 const menuItemsEl = document.getElementById('menu-items');
 
 navToggleEl.addEventListener('click', () => {
-    if (primaryNavEL.hasAttribute("data-visible")){
-        navToggleEl.setAttribute("aria-expanded", false);
-    }
-    else {
-        navToggleEl.setAttribute("aria-expanded", true);
-    }
-    primaryNavEL.toggleAttribute("data-visible");
+    handleMobileNavToggleClick();
 });
 
 menuSectionEl.addEventListener('click', (e) => {
@@ -72,7 +65,24 @@ document.addEventListener('click', (e) => {
         handleGoToCartBtnClick();
         renderBasket();
     }
+    else if(e.target.id === 'hero--order-now-btn' || e.target.id === 'nav-menu' ){
+        e.preventDefault();
+        menuSectionEl.scrollIntoView({ behavior: 'smooth' });
+    }
 });
+
+function handleMobileNavToggleClick(){
+    const navToggleEl = document.getElementById('mobile-nav-toggle');
+    const primaryNavEL = document.getElementById('primary-navigation');
+    
+    if (primaryNavEL.hasAttribute("data-visible")){
+        navToggleEl.setAttribute("aria-expanded", false);
+    }
+    else {
+        navToggleEl.setAttribute("aria-expanded", true);
+    }
+    primaryNavEL.toggleAttribute("data-visible");
+}
 
 function handleOrderBtnClick(id){
     const targetItemObj = menuArray.filter( (item) => {
