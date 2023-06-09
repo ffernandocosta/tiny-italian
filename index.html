@@ -75,6 +75,32 @@
                 <!--BASKET CONTENT HERE-->
             </section>
 
+            <!--basket--payment-->
+            <section class="basket--payment-form bg-white" id="basket-payment-form">
+                <form class="payment-form" data-form>
+                    <fieldset class="form-fieldset">
+                        <label class="form-label fw-semi-bold" for="name">Name</label>
+                        <input type="text" name="name" id="name" class="fieldset-text">
+                        <span class="error-message fs-200 text-red fw-semi-bold"></span>
+                    </fieldset>
+                    <fieldset class="form-fieldset">
+                        <label class="form-label fw-semi-bold" for="credit-card">Credit Card Number</label>
+                        <input type="number" name="credit-card" id="credit-card" class="fieldset-text">
+                        <span class="error-message fs-200 text-red fw-semi-bold"></span>
+                    </fieldset>
+                    <fieldset class="form-fieldset">
+                        <label class="form-label fw-semi-bold" for="card-cvv">CVV</label>
+                        <input type="number" name="card-cvv" id="card-cvv" class="fieldset-text">
+                        <span class="error-message fs-200 text-red fw-semi-bold"></span>
+                    </fieldset>
+                    <div>
+                        <input value="Pay" class="form-pay-btn fw-semi-bold" id="pay" type="submit">
+                    </div>
+                </form>
+
+                <p class="payment-continue-shopping fs-300 fw-medium text-main" id="continue-shopping-form">← Continue Shopping</p>
+            </section>
+
             <!--Menu-->
             <section class="bg-white" id="menu-section">
                 <div class="container">
