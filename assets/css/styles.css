@@ -728,7 +728,107 @@ body {
     text-align: center;
 }
 
+/* Payment form section */
 
+.basket--payment-form {
+    z-index: 5;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: auto;
+    padding: 2.5rem 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-height: 550px;
+    max-width: 350px;
+    min-width: 260px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition-duration: .2s;
+}
+
+.basket--payment-form[data-visible]{
+    display: block;
+}
+
+.payment-form {
+    display: grid;
+    gap: 1.1rem;
+    place-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-fieldset {
+    border: none;
+    display: grid;
+    width: 100%;
+}
+
+.fieldset-text {
+    border: 1px solid var(--clr-lighter-black);
+    border-radius: 5px;
+    padding: .200rem .300rem;
+}
+
+.form-pay-btn {
+    background-color: var(--clr-accent);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    cursor: pointer;
+    transition-duration: .2s;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.form-pay-btn:hover {
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
+.form-pay-btn:active {
+    transform: translateY(-2px);
+    transform: translateX(2px);
+    box-shadow: none;
+}
+
+.payment-continue-shopping {
+    cursor: pointer;
+}
+
+.payment-continue-shopping:hover {
+    color: var(--clr-lighter-black);
+}
+
+/* thank you for your order styles */
+
+.thankyou-message {
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: auto;
+    padding: 2.5rem 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-height: 550px;
+    max-width: 350px;
+    min-width: 260px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition-duration: .2s;
+    background-color: var(--clr-white);
+}
+
+.thankyou-message-content {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
 
 /* Why us section */
 
