@@ -199,7 +199,7 @@ body {
     width: 0%;
     height: 2px;
     display: block;
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
 }
 
 .nav-list li a:hover::after {
@@ -806,6 +806,7 @@ body {
 /* thank you for your order styles */
 
 .thankyou-message {
+    display: none;
     z-index: 5;
     position: fixed;
     top: 50%;
@@ -824,10 +825,23 @@ body {
     background-color: var(--clr-white);
 }
 
+.thankyou-message[data-visible] {
+    display: block;
+}
+
 .thankyou-message-content {
     display: grid;
     gap: 1rem;
     text-align: center;
+}
+
+.thankyou--go-back-btn {
+    justify-self: end;
+    cursor: pointer;
+}
+
+.thankyou--go-back-btn:hover {
+    color: var(--clr-lighter-black);
 }
 
 /* Why us section */
