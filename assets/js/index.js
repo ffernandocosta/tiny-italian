@@ -2,12 +2,20 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 import { menuArray } from './data.js';
 
 let basketItemsArray = [];
+let isPaymentFormValid = false;
 
 const navToggleEl = document.getElementById('mobile-nav-toggle');
 const menuSectionEl = document.getElementById('menu-section');
 const basketContentEl = document.getElementById('basket--content');
 const basketEmptyEl = document.getElementById('basket--empty');
 const menuItemsEl = document.getElementById('menu-items');
+const basketPaymentForm = document.getElementById('basket-payment-form');
+const paymentFormEl = document.querySelector('[data-form]');
+const thankyouMessageEl = document.getElementById('thankyou-message');
+const paymentFormUsername = document.getElementById('name');
+const paymentFormCreditCard = document.getElementById('credit-card');
+const paymentFormCardCvv = document.getElementById('card-cvv');
+const continueShoppingFormBtn = document.getElementById('continue-shopping-form');
 
 navToggleEl.addEventListener('click', () => {
     handleMobileNavToggleClick();
@@ -52,6 +60,10 @@ basketContentEl.addEventListener('click', (e) => {
         renderBasket();
         handleShoppingCartUiUpdate();
     }
+    else if(e.target.id === 'basket--place-order-btn'){
+        basketContentEl.toggleAttribute('data-visible');
+        basketPaymentForm.toggleAttribute('data-visible');
+    }
 });
 
 basketEmptyEl.addEventListener('click', (e) => {
@@ -86,8 +98,24 @@ document.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementById('locations-section').scrollIntoView({ behavior: 'smooth' });
         handleMobileNavToggleClick();
-    }   
+    }
+    else if(e.target.id === 'thankyou--go-back-btn'){
+        thankyouMessageEl.toggleAttribute('data-visible');
+    }
 });
+
+paymentFormEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleInputValidation();
+    handlePurchaseThankYouMessage();
+});
+
+continueShoppingFormBtn.addEventListener('click', () => {
+    basketPaymentForm.toggleAttribute('data-visible');
+    basketContentEl.toggleAttribute('data-visible');
+});
+
+
 
 function handleMobileNavToggleClick(){
     const navToggleEl = document.getElementById('mobile-nav-toggle');
@@ -318,6 +346,90 @@ function renderMenu(){
     menuItemsEl.innerHTML = getMenuHtml();
 }
 
+function setFormError(element, message){
+    const elementFieldset = element.parentElement;
+    const errorDisplay = elementFieldset.querySelector('.error-message');
+
+    errorDisplay.innerText = message;
+}
+
+function setFormSuccess(element){
+    const elementFieldset = element.parentElement;
+    const errorDisplay = elementFieldset.querySelector('.error-message');
+
+    errorDisplay.innerText = '';
+}
+
+function handleInputValidation(){
+    const usernameValue = paymentFormUsername.value.trim();
+    const creditCardValue = paymentFormCreditCard.value.trim();
+    const cvvValue = paymentFormCardCvv.value.trim();
+
+    isPaymentFormValid = true;
+
+    if(usernameValue === '') {
+        setFormError(paymentFormUsername, 'Username is required');
+        isPaymentFormValid = false;
+    }
+    else if(usernameValue.length < 3){
+        setFormError(paymentFormUsername, 'Username must have more than 3 letters');
+        isPaymentFormValid = false
+    }
+    else {
+        setFormSuccess(paymentFormUsername);
+    }
+
+    if(creditCardValue === '') {
+        setFormError(paymentFormCreditCard, 'Credit card number is required');
+        isPaymentFormValid = false
+    }
+    else if(creditCardValue.length < 13){
+        setFormError(paymentFormCreditCard, 'Credit card number must have 13 digits')
+        isPaymentFormValid = false
+    }
+    else {
+        setFormSuccess(paymentFormCreditCard);
+    }
+
+    if(cvvValue === '') {
+        setFormError(paymentFormCardCvv, 'CVV is required');
+        isPaymentFormValid = false
+    }
+    else if(cvvValue.length < 3 ) {
+        setFormError(paymentFormCardCvv, 'CVV must be at least 3 character.')
+        isPaymentFormValid = false
+    }
+    else {
+        setFormSuccess(paymentFormCardCvv);
+    }
+}
+
+function handlePurchaseThankYouMessage(){
+    if(isPaymentFormValid){
+        thankyouMessageEl.innerHTML = `
+        <div class="thankyou-message-content">
+            <a href="#" class="logo-link">
+                <span class="logo fw-semi-bold">TinyItalian</span>
+                <span class="logo-slogan fw-medium">An Italian affair</span>
+            </a>
+            <p class="thankyou-costumer-name">Thank you for your order, <span class="fw-bold">${paymentFormUsername.value.trim()}!</span></p>
+            <img src="/assets/img/cash-payment-animate.svg" class="animated-payment-svg">
+            <p class="thankyou--go-back-btn fs-300 fw-medium text-main" id="thankyou--go-back-btn">← Go back</p>
+        </div>
+        `
+        thankyouMessageEl.toggleAttribute('data-visible');
+        basketPaymentForm.toggleAttribute('data-visible');
+
+        basketItemsArray = [];
+        renderMenu();
+        handleShoppingCartUiUpdate();
+    }
+}
+
 renderMenu();
+
+
+
+
 
 
