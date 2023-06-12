@@ -8,6 +8,7 @@ export const menuArray = [
         price: 21.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "0262435f-64fb-4737-b670-7d5e5a92d47a"
     },
     {
@@ -19,6 +20,7 @@ export const menuArray = [
         price: 22.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "1a7b9145-b11d-4f09-b37d-4e419cdfca97"
     },
     {
@@ -30,6 +32,7 @@ export const menuArray = [
         price: 23.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "1d2d91ec-97c1-461c-b2bc-cf4334ac1f3b"
     },
     {
@@ -41,6 +44,7 @@ export const menuArray = [
         price: 21.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "2f6408b9-9cb4-4f01-bf53-0905795168b4"
     },
     {
@@ -52,6 +56,7 @@ export const menuArray = [
         price: 24.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "85819001-c87d-4229-a9bb-20d09bfa4f9c"
     },
     {
@@ -63,6 +68,7 @@ export const menuArray = [
         price: 26.99,
         discount: '',
         itemCount: 0,
+        category: "traditional",
         uuid: "6a2f318c-0b15-4f97-a5da-c46f90768eea"
     },
     {
