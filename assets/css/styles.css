@@ -391,6 +391,39 @@ body {
     margin-bottom: 2.5rem;
 }
 
+.menu--categories {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-self: center;
+    margin-bottom: 0.9rem;
+}
+
+.filter-btn {
+    background-color: var(--clr-accent);
+    border: 1px solid black;
+    border-radius: 9px;
+    box-shadow: 2px 2px var(--clr-main);
+    cursor: pointer;
+    transition-duration: .2s;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    width: 100px;
+}
+
+.filter-btn:hover {
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
+.filter-btn:active {
+    transform: translateY(-2px);
+    transform: translateX(2px);
+    box-shadow: none;
+    background-color: var(--clr-peach);
+    color: var(--clr-main);
+}
+
 .card-menu {
     background-color: var(--clr-white);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -399,7 +432,29 @@ body {
     height: 335px;
     width: 253px;
     padding: 1rem;
+    animation: fadeInMenu 0.5s ease-in-out;
 }
+
+@keyframes fadeInMenu {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBaskets {
+    0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+}
+
 
 .card-inner {
     display: grid;
@@ -590,6 +645,7 @@ body {
 
 .basket--content[data-visible]{
     display: block;
+    animation: fadeInBaskets 0.4s ease-in-out;
 }
 
 .basket--inner-content {
@@ -717,6 +773,7 @@ body {
 
 .basket--empty[data-visible]{
     display: block;
+    animation: fadeInBaskets 0.4s ease-in-out;
 }
 
 .basket--empty-grid-container {
@@ -751,6 +808,7 @@ body {
 
 .basket--payment-form[data-visible]{
     display: block;
+    animation: fadeInBaskets 0.4s ease-in-out;
 }
 
 .payment-form {
@@ -827,6 +885,7 @@ body {
 
 .thankyou-message[data-visible] {
     display: block;
+    animation: fadeInBaskets 0.4s ease-in-out;
 }
 
 .thankyou-message-content {
