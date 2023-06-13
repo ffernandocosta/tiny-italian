@@ -9,6 +9,7 @@ const menuSectionEl = document.getElementById('menu-section');
 const basketContentEl = document.getElementById('basket--content');
 const basketEmptyEl = document.getElementById('basket--empty');
 const menuItemsEl = document.getElementById('menu-items');
+const filterBtns = document.querySelectorAll('.filter-btn');
 const basketPaymentForm = document.getElementById('basket-payment-form');
 const paymentFormEl = document.querySelector('[data-form]');
 const thankyouMessageEl = document.getElementById('thankyou-message');
@@ -113,6 +114,25 @@ paymentFormEl.addEventListener('submit', (e) => {
 continueShoppingFormBtn.addEventListener('click', () => {
     basketPaymentForm.toggleAttribute('data-visible');
     basketContentEl.toggleAttribute('data-visible');
+});
+
+filterBtns.forEach( (btn) => {
+    btn.addEventListener('click', (e) => {
+        const category = e.currentTarget.dataset.id;
+        const menuCategory = menuArray.filter( (item) => {
+            if(item.category === category){
+                return item;
+            }
+        })
+        if(category === "all"){
+            renderMenu(menuArray);
+            handleShoppingCartUiUpdate();
+        }
+        else {
+            renderMenu(menuCategory);
+            handleShoppingCartUiUpdate();
+        }
+    });
 });
 
 
@@ -304,10 +324,10 @@ function getBasketHtml(){
     
 }
 
-function getMenuHtml(){
+function getMenuHtml(menuItems){
     let htmlMenu = ``
 
-    menuArray.forEach( (item) => {
+    menuItems.forEach( (item) => {
         htmlMenu += `
         <div class="card-menu">    
             <div class="card-inner">
@@ -342,8 +362,8 @@ function renderBasket(){
     basketContentEl.innerHTML = getBasketHtml();
 }
 
-function renderMenu(){
-    menuItemsEl.innerHTML = getMenuHtml();
+function renderMenu(category){
+    menuItemsEl.innerHTML = getMenuHtml(category);
 }
 
 function setFormError(element, message){
@@ -421,12 +441,12 @@ function handlePurchaseThankYouMessage(){
         basketPaymentForm.toggleAttribute('data-visible');
 
         basketItemsArray = [];
-        renderMenu();
+        renderMenu(menuArray);
         handleShoppingCartUiUpdate();
     }
 }
 
-renderMenu();
+renderMenu(menuArray);
 
 
 
