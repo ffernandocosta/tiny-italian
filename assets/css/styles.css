@@ -34,58 +34,19 @@
 
 /* Utility classes */
 
-.text-red {
-    color: var(--clr-red);
-}
-.text-peach {
-    color: var(--clr-peach);
-}
-.text-white {
-    color: var(--clr-white);
-}
-.text-lighter-black {
-    color: var(--clr-lighter-black);
-}
-.text-main {
-    color: var(--clr-main);
-}
+.text-red { color: var(--clr-red); }
+.text-peach { color: var(--clr-peach); }
+.text-white { color: var(--clr-white); }
+.text-lighter-black { color: var(--clr-lighter-black); }
+.text-main { color: var(--clr-main); }
+.text-accent { color: var(--clr-accent); }
+.text-secondary-accent { color: var(--clr-secondary-accent); }
 
-.bg-red {
-    background-color: var(--clr-red);
-}
-.bg-peach {
-    background-color: var(--clr-peach);
-}
-.bg-white {
-    background-color: var(--clr-white);
-}
-.bg-lighter-black {
-    background-color: var(--clr-lighter-black);
-}
-.bg-accent {
-    background-color: var(--clr-accent);
-}
-
-.clr-red {
-    color: var(--clr-red);
-}
-.clr-main {
-    color: var(--clr-main);
-}
-.clr-accent {
-    color: var(--clr-accent);
-}
-.clr-secondary-accent {
-    color: var(--clr-secondary-accent);
-}
-
-.clr-lighter-black {
-    color: var(--clr-lighter-black);
-}
-
-.clr-white {
-    color: var(--clr-white);
-}
+.bg-red { background-color: var(--clr-red); }
+.bg-peach { background-color: var(--clr-peach); }
+.bg-white { background-color: var(--clr-white); }
+.bg-lighter-black { background-color: var(--clr-lighter-black); }
+.bg-accent { background-color: var(--clr-accent); }
 
 .fw-thin { font-weight: var(--fw-thin); }
 .fw-extra-light { font-weight: var(--fw-extra-light); }
@@ -126,7 +87,7 @@
 }
 
 .container {
-    --max-width: 1110px;
+    --max-width: 69.375em;
     --padding: 1rem;
 
     max-width: var(--max-width);
@@ -157,12 +118,7 @@ body {
     font-size: clamp(1rem, 0.64rem + 1.50vw, 1.4rem);
 }
 
-.logo {
-    color: #d4971a;
-}
-
 .logo-slogan {
-    color: hsl(48, 100%, 50%);
     font-style: italic;
 }
 
@@ -1020,6 +976,8 @@ body {
 .footer-logo {
     display: grid;
     line-height: 1;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.37rem + 0.51vw, 2rem);
 }
 
 .footer-slogan {
