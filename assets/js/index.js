@@ -224,7 +224,7 @@ function handleShoppingCartUiUpdate(){
         div.innerHTML = 
         `
         <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart cart-click">
-        <span class="card--how-many-items cart-click fs-200 fw-medium clr-white show">
+        <span class="card--how-many-items cart-click fs-200 fw-medium text-white show">
             ${getBasketItemCountTotal()}
         </span>
         `
@@ -232,7 +232,7 @@ function handleShoppingCartUiUpdate(){
 
     navShoppingCartEl.innerHTML = `
         <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="shopping-cart-icon cart-click">
-        <span class="nav--how-many-items cart-click fs-200 fw-medium clr-white show">
+        <span class="nav--how-many-items cart-click fs-200 fw-medium text-white show">
             ${getBasketItemCountTotal()}
         </span>
     `
@@ -335,7 +335,7 @@ function getMenuHtml(menuItems){
                 <img src="/assets/img/stars-rating.svg" alt="Five yellow starts rating" class="card-rating">
                 <div class="card--item-count">
                     <img src="/assets/img/shopping-cart-icon.svg" alt="A shopping cart icon" class="card-cart cart-click">
-                    <span class="card--how-many-items cart-click fs-200 fw-medium clr-white hidden">
+                    <span class="card--how-many-items cart-click fs-200 fw-medium text-white hidden">
                     </span>
                 </div>
                 <p class="fs-400 fw-extra-bold card-title">${item.name}</p>
