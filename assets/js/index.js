@@ -429,8 +429,8 @@ function handlePurchaseThankYouMessage(){
         thankyouMessageEl.innerHTML = `
         <div class="thankyou-message-content">
             <a href="#" class="logo-link">
-                <span class="logo fw-semi-bold">TinyItalian</span>
-                <span class="logo-slogan fw-medium">An Italian affair</span>
+                <span class="logo fw-semi-bold text-accent">TinyItalian</span>
+                <span class="logo-slogan fw-medium text-secondary-accent">An Italian affair</span>
             </a>
             <p class="thankyou-costumer-name">Thank you for your order, <span class="fw-bold">${paymentFormUsername.value.trim()}!</span></p>
             <img src="/assets/img/cash-payment-animate.svg" class="animated-payment-svg">
