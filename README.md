@@ -44,6 +44,7 @@ Os usuários devem ser capazes de:
 - Flexbox
 - Mobile first workflow
 - JavaScript
+- Acessibilidade
 
 
 ### O que eu aprendi
@@ -211,6 +212,7 @@ Users should be able to:
 - Flexbox
 - Mobile first workflow
 - JavaScript
+- Accessibility
 
 
 ### What I learned
